@@ -5,9 +5,7 @@
  */
 package pns.utils.strings;
 
-import pns.utils.strings.Shaffle;
 import java.util.StringTokenizer;
-import pns.utils.numbers.RBytes;
 import pns.utils.numbers.RChars;
 import pns.utils.numbers.RInts;
 
@@ -27,8 +25,8 @@ public class RStrings {
      * @return
      */
     public static String rndString() {
-        char[] c = RChars.rndCharArray();
-        return new String(c);
+	char[] c = RChars.rndCharArray();
+	return new String(c);
 
     }
 
@@ -38,16 +36,16 @@ public class RStrings {
      * @return
      */
     public static String rndLetterString() {
-        int spLen = RInts.rndInt(10, 20);
-        char[] c = RChars.rndCharArray('a', 'z');
-        char[] C = RChars.rndCharArray('A', 'Z');
-        char[] d = RChars.rndCharArray('0', '9');
-        String special = "";
-        for (int s = 0; s < spLen; s++) {
-            special += "!@#$%^&*()-_~`=+:;.,";
-        }
-        String s1 = new String(c) + new String(d) + new String(C) + special;
-        return shaffleString(s1);
+	int spLen = RInts.rndInt(10, 20);
+	char[] c = RChars.rndCharArray('a', 'z');
+	char[] C = RChars.rndCharArray('A', 'Z');
+	char[] d = RChars.rndCharArray('0', '9');
+	String special = "";
+//	for (int s = 0; s < spLen; s++) {
+//	    special += "!@#$%^&*()-_~`=+:;.,";
+//	}
+	String s1 = new String(c) + new String(d) + new String(C) + special;
+	return shaffleString(s1);
     }
 
     /**
@@ -56,9 +54,9 @@ public class RStrings {
      * @return
      */
     public static String rndString(int length) {
-        char[] c = RChars.rndCharArray(length);
-        return new String(c);
-
+	char[] c = RChars.rndCharArray(length);
+	String s = new String(c);
+	return shaffleString(s);
     }
 
     /**
@@ -67,8 +65,9 @@ public class RStrings {
      * @return
      */
     public static String rndString(char min, char max) {
-        char[] c = RChars.rndCharArray(min, max);
-        return new String(c);
+	char[] c = RChars.rndCharArray(min, max);
+	String s = new String(c);
+	return shaffleString(s);
 
     }
 
@@ -79,8 +78,9 @@ public class RStrings {
      * @return
      */
     public static String rndString(int length, char min, char max) {
-        char[] c = RChars.rndCharArray(length, min, max);
-        return new String(c);
+	char[] c = RChars.rndCharArray(length, min, max);
+	String s = new String(c);
+	return shaffleString(s);
     }
 
     /**
@@ -89,20 +89,21 @@ public class RStrings {
      * @return
      */
     public static String rndString(String type) {
-        char min = ' ';
-        char max = ' ';
-        if (type.trim().equals(LATIN_LARGE)) {
-            min = 'A';
-            max = 'Z';
-        } else if (type.trim().equals(LATIN_SMALL)) {
-            min = 'a';
-            max = 'z';
-        } else if (type.trim().equals(DIGITS)) {
-            min = '0';
-            max = '9';
-        }
-        char[] c = RChars.rndCharArray(min, max);
-        return new String(c);
+	char min = ' ';
+	char max = ' ';
+	if (type.trim().equals(LATIN_LARGE)) {
+	    min = 'A';
+	    max = 'Z';
+	} else if (type.trim().equals(LATIN_SMALL)) {
+	    min = 'a';
+	    max = 'z';
+	} else if (type.trim().equals(DIGITS)) {
+	    min = '0';
+	    max = '9';
+	}
+	char[] c = RChars.rndCharArray(min, max);
+	String s = new String(c);
+	return shaffleString(s);
 
     }
 
@@ -112,20 +113,21 @@ public class RStrings {
      * @return
      */
     public static String rndString(int length, String type) {
-        char min = ' ';
-        char max = ' ';
-        if (type.trim().equals(LATIN_LARGE)) {
-            min = 'A';
-            max = 'Z';
-        } else if (type.trim().equals(LATIN_SMALL)) {
-            min = 'a';
-            max = 'z';
-        } else if (type.trim().equals(DIGITS)) {
-            min = '0';
-            max = '9';
-        }
-        char[] c = RChars.rndCharArray(length, min, max);
-        return new String(c);
+	char min = ' ';
+	char max = ' ';
+	if (type.trim().equals(LATIN_LARGE)) {
+	    min = 'A';
+	    max = 'Z';
+	} else if (type.trim().equals(LATIN_SMALL)) {
+	    min = 'a';
+	    max = 'z';
+	} else if (type.trim().equals(DIGITS)) {
+	    min = '0';
+	    max = '9';
+	}
+	char[] c = RChars.rndCharArray(length, min, max);
+	String s = new String(c);
+	return shaffleString(s);
 
     }
 
@@ -136,26 +138,26 @@ public class RStrings {
      * @return
      */
     public static String rndString(int length, String type, char[] cc) {
-        char min = ' ';
-        char max = ' ';
-        if (type.trim().equals(LATIN_LARGE)) {
-            min = 'A';
-            max = 'Z';
-        } else if (type.trim().equals(LATIN_SMALL)) {
-            min = 'a';
-            max = 'z';
-        } else if (type.trim().equals(DIGITS)) {
-            min = '0';
-            max = '9';
-        }
-        String CC = new String(cc);
-        CC = shaffleString(CC);
-        char[] c = RChars.rndCharArray(length, min, max);
-        if (min != max) {
-            return new String(c) + CC;
-        }
+	char min = ' ';
+	char max = ' ';
+	if (type.trim().equals(LATIN_LARGE)) {
+	    min = 'A';
+	    max = 'Z';
+	} else if (type.trim().equals(LATIN_SMALL)) {
+	    min = 'a';
+	    max = 'z';
+	} else if (type.trim().equals(DIGITS)) {
+	    min = '0';
+	    max = '9';
+	}
+	String CC = new String(cc);
+	CC = shaffleString(CC);
+	char[] c = RChars.rndCharArray(length, min, max);
+	if (min != max) {
+	    return new String(c) + CC;
+	}
 
-        return CC;
+	return CC;
     }
 
     /**
@@ -166,15 +168,15 @@ public class RStrings {
      * @return
      */
     public static String codeString(String[] sData, char delimiter) {
-        String result = "";
-        for (int i = 0; i < sData.length; i++) {
-            if (i < sData.length - 1) {
-                result += sData[i] + delimiter;
-            } else {
-                result += sData[i];
-            }
-        }
-        return result;
+	String result = "";
+	for (int i = 0; i < sData.length; i++) {
+	    if (i < sData.length - 1) {
+		result += sData[i] + delimiter;
+	    } else {
+		result += sData[i];
+	    }
+	}
+	return result;
     }
 
     /**
@@ -184,8 +186,8 @@ public class RStrings {
      * @return
      */
     public static String shaffleString(String string) {
-        Shaffle s = new Shaffle();
-        return s.shuffle(string);
+	Shaffle s = new Shaffle();
+	return s.shuffle(string);
     }
 
     /**
@@ -195,9 +197,9 @@ public class RStrings {
      * @return
      */
     public static String[] strParts(String string) {
-        //StringTokenizer st = new StringTokenizer(string);
-        String[] strings = string.split("\\s+");
-        return removeSpaces(strings);
+	//StringTokenizer st = new StringTokenizer(string);
+	String[] strings = string.split("\\s+");
+	return removeSpaces(strings);
     }
 
     /**
@@ -208,18 +210,18 @@ public class RStrings {
      */
     public static String clearLongWhitespaces(String str) {
 
-        if (str == null) {
-            str = "";
-        }
-        String result = "";
-        StringTokenizer st = new StringTokenizer(str);
-        while (st.hasMoreTokens()) {
-            String s = st.nextToken();
-            if (s != null) {
-                result += s.trim();
-            }
-        }
-        return result.trim();
+	if (str == null) {
+	    str = "";
+	}
+	String result = "";
+	StringTokenizer st = new StringTokenizer(str);
+	while (st.hasMoreTokens()) {
+	    String s = st.nextToken();
+	    if (s != null) {
+		result += s.trim();
+	    }
+	}
+	return result.trim();
     }
 
     /**
@@ -229,9 +231,9 @@ public class RStrings {
      * @return
      */
     public static String[] strParts(String string, String delim) {
-        //StringTokenizer st = new StringTokenizer(string);
-        String[] strings = string.split(delim);
-        return removeSpaces(strings);
+	//StringTokenizer st = new StringTokenizer(string);
+	String[] strings = string.split(delim);
+	return removeSpaces(strings);
     }
 
     /**
@@ -241,10 +243,10 @@ public class RStrings {
      * @return
      */
     public static String[] removeSpaces(String[] strings) {
-        for (int i = 0; i < strings.length; i++) {
-            strings[i] = strings[i].trim();
-        }
-        return strings;
+	for (int i = 0; i < strings.length; i++) {
+	    strings[i] = strings[i].trim();
+	}
+	return strings;
     }
 
     /**
@@ -256,33 +258,33 @@ public class RStrings {
      */
     public static int sringDistance(String S1, String S2) {
 
-        int m = S1.length(), n = S2.length();
-        int[] D1;
-        int[] D2 = new int[n + 1];
+	int m = S1.length(), n = S2.length();
+	int[] D1;
+	int[] D2 = new int[n + 1];
 
-        for (int i = 0; i <= n; i++) {
-            D2[i] = i;
-        }
+	for (int i = 0; i <= n; i++) {
+	    D2[i] = i;
+	}
 
-        for (int i = 1; i <= m; i++) {
-            D1 = D2;
-            D2 = new int[n + 1];
-            for (int j = 0; j <= n; j++) {
-                if (j == 0) {
-                    D2[j] = i;
-                } else {
-                    int cost = (S1.charAt(i - 1) != S2.charAt(j - 1)) ? 1 : 0;
-                    if (D2[j - 1] < D1[j] && D2[j - 1] < D1[j - 1] + cost) {
-                        D2[j] = D2[j - 1] + 1;
-                    } else if (D1[j] < D1[j - 1] + cost) {
-                        D2[j] = D1[j] + 1;
-                    } else {
-                        D2[j] = D1[j - 1] + cost;
-                    }
-                }
-            }
-        }
-        return D2[n];
+	for (int i = 1; i <= m; i++) {
+	    D1 = D2;
+	    D2 = new int[n + 1];
+	    for (int j = 0; j <= n; j++) {
+		if (j == 0) {
+		    D2[j] = i;
+		} else {
+		    int cost = (S1.charAt(i - 1) != S2.charAt(j - 1)) ? 1 : 0;
+		    if (D2[j - 1] < D1[j] && D2[j - 1] < D1[j - 1] + cost) {
+			D2[j] = D2[j - 1] + 1;
+		    } else if (D1[j] < D1[j - 1] + cost) {
+			D2[j] = D1[j] + 1;
+		    } else {
+			D2[j] = D1[j - 1] + cost;
+		    }
+		}
+	    }
+	}
+	return D2[n];
     }
 
     /**
@@ -293,36 +295,36 @@ public class RStrings {
      * @return
      */
     public static String removeChar(String s, char c) {
-        String r = "";
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != c) {
-                r += s.charAt(i);
-            }
-        }
-        return r;
+	String r = "";
+	for (int i = 0; i < s.length(); i++) {
+	    if (s.charAt(i) != c) {
+		r += s.charAt(i);
+	    }
+	}
+	return r;
     }
 
     public static double usageFrequency(String TEXT, String word) {
-        if (TEXT == null || word == null) {
-            return -1;
-        }
-        if (TEXT.length() * word.length() == 0) {
-            return -2;
-        }
-        int k = 0;
-        word = removeChar(word, ',');
-        StringTokenizer TXTTok = new StringTokenizer(TEXT);
-        while (TXTTok.hasMoreTokens()) {
-            String s = TXTTok.nextToken();
-            s = removeChar(s, ',');
-            if (word.equals(s)) {
-                k++;
-            }
-        }
-        if (TXTTok.countTokens() > 0) {
-            return k / TXTTok.countTokens();
-        }
-        return 0;
+	if (TEXT == null || word == null) {
+	    return -1;
+	}
+	if (TEXT.length() * word.length() == 0) {
+	    return -2;
+	}
+	int k = 0;
+	word = removeChar(word, ',');
+	StringTokenizer TXTTok = new StringTokenizer(TEXT);
+	while (TXTTok.hasMoreTokens()) {
+	    String s = TXTTok.nextToken();
+	    s = removeChar(s, ',');
+	    if (word.equals(s)) {
+		k++;
+	    }
+	}
+	if (TXTTok.countTokens() > 0) {
+	    return k / TXTTok.countTokens();
+	}
+	return 0;
     }
 
     /**
@@ -332,14 +334,14 @@ public class RStrings {
      * @return
      */
     public static String removeSpaces(String s) {
-        StringTokenizer stt = new StringTokenizer(s);
-        String res = "";
+	StringTokenizer stt = new StringTokenizer(s);
+	String res = "";
 
-        while (stt.hasMoreTokens()) {
-            String tok = stt.nextToken().trim();
-            res += tok;
-        }
-        return res;
+	while (stt.hasMoreTokens()) {
+	    String tok = stt.nextToken().trim();
+	    res += tok;
+	}
+	return res;
     }
 
     /**
@@ -351,11 +353,11 @@ public class RStrings {
      * @return
      */
     public static String zeroFirst(int num, int strLen) {
-        String res = "" + num;
-        while (res.length() < strLen) {
-            res = "0" + res;
-        }
-        return res;
+	String res = "" + num;
+	while (res.length() < strLen) {
+	    res = "0" + res;
+	}
+	return res;
     }
 
     /**
@@ -366,10 +368,10 @@ public class RStrings {
      * @return
      */
     public static String zeroFirst(int num) {
-        if (num < 10) {
-            return "0" + num;
-        }
-        return "" + num;
+	if (num < 10) {
+	    return "0" + num;
+	}
+	return "" + num;
     }
 
 }
