@@ -8,6 +8,8 @@ package pns.utils.strings;
 import pns.utils.strings.Shaffle;
 import java.util.StringTokenizer;
 import pns.utils.numbers.RBytes;
+import pns.utils.numbers.RChars;
+import pns.utils.numbers.RInts;
 
 /**
  *
@@ -25,7 +27,7 @@ public class RStrings {
      * @return
      */
     public static String rndString() {
-        char[] c = RBytes.rndCharArray();
+        char[] c = RChars.rndCharArray();
         return new String(c);
 
     }
@@ -36,10 +38,10 @@ public class RStrings {
      * @return
      */
     public static String rndLetterString() {
-        int spLen = RBytes.rndInt(10, 20);
-        char[] c = RBytes.rndCharArray('a', 'z');
-        char[] C = RBytes.rndCharArray('A', 'Z');
-        char[] d = RBytes.rndCharArray('0', '9');
+        int spLen = RInts.rndInt(10, 20);
+        char[] c = RChars.rndCharArray('a', 'z');
+        char[] C = RChars.rndCharArray('A', 'Z');
+        char[] d = RChars.rndCharArray('0', '9');
         String special = "";
         for (int s = 0; s < spLen; s++) {
             special += "!@#$%^&*()-_~`=+:;.,";
@@ -54,7 +56,7 @@ public class RStrings {
      * @return
      */
     public static String rndString(int length) {
-        char[] c = RBytes.rndCharArray(length);
+        char[] c = RChars.rndCharArray(length);
         return new String(c);
 
     }
@@ -65,7 +67,7 @@ public class RStrings {
      * @return
      */
     public static String rndString(char min, char max) {
-        char[] c = RBytes.rndCharArray(min, max);
+        char[] c = RChars.rndCharArray(min, max);
         return new String(c);
 
     }
@@ -77,7 +79,7 @@ public class RStrings {
      * @return
      */
     public static String rndString(int length, char min, char max) {
-        char[] c = RBytes.rndCharArray(length, min, max);
+        char[] c = RChars.rndCharArray(length, min, max);
         return new String(c);
     }
 
@@ -99,7 +101,7 @@ public class RStrings {
             min = '0';
             max = '9';
         }
-        char[] c = RBytes.rndCharArray(min, max);
+        char[] c = RChars.rndCharArray(min, max);
         return new String(c);
 
     }
@@ -122,7 +124,7 @@ public class RStrings {
             min = '0';
             max = '9';
         }
-        char[] c = RBytes.rndCharArray(length, min, max);
+        char[] c = RChars.rndCharArray(length, min, max);
         return new String(c);
 
     }
@@ -148,7 +150,7 @@ public class RStrings {
         }
         String CC = new String(cc);
         CC = shaffleString(CC);
-        char[] c = RBytes.rndCharArray(length, min, max);
+        char[] c = RChars.rndCharArray(length, min, max);
         if (min != max) {
             return new String(c) + CC;
         }
@@ -199,7 +201,7 @@ public class RStrings {
     }
 
     /**
-     * Clears the long whitespaces in the given string
+     * Clears the whitespaces in the given string and glue it's words
      *
      * @param str
      * @return
@@ -338,6 +340,36 @@ public class RStrings {
             res += tok;
         }
         return res;
+    }
+
+    /**
+     * Given num value transforms to the string with leading zeros. The result
+     * string contains strLen characters
+     *
+     * @param num
+     * @param strLen
+     * @return
+     */
+    public static String zeroFirst(int num, int strLen) {
+        String res = "" + num;
+        while (res.length() < strLen) {
+            res = "0" + res;
+        }
+        return res;
+    }
+
+    /**
+     * Given num value adds to ""( ""+num) or to "0"( "0"+num). Generates the
+     * leading-Zero string from a given int
+     *
+     * @param num
+     * @return
+     */
+    public static String zeroFirst(int num) {
+        if (num < 10) {
+            return "0" + num;
+        }
+        return "" + num;
     }
 
 }

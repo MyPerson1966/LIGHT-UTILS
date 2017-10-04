@@ -65,17 +65,4 @@ public class dateTimeMechanism {
         return format.format(d);
     }
 
-    /**
-     * Given num value adds to ""( ""+num) or to "0"( "0"+num). Generates the
-     * leading-Zero string from a given int
-     *
-     * @param num
-     * @return
-     */
-    public static String zeroFirst(int num) {
-        if (num < 10) {
-            return "0" + num;
-        }
-        return "" + num;
-    }
 }

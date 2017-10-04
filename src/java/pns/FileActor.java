@@ -111,9 +111,9 @@ public class FileActor {
         int secM = cldr.get(Calendar.SECOND);
         int miliM = cldr.get(Calendar.MILLISECOND);
 
-        String fileName = pns.utils.dateTimeMechanism.zeroFirst(minM) + "-"
-                + pns.utils.dateTimeMechanism.zeroFirst(secM) + "-"
-                + pns.utils.dateTimeMechanism.zeroFirst(miliM);
+        String fileName = pns.utils.strings.RStrings.zeroFirst(minM) + "-"
+                + pns.utils.strings.RStrings.zeroFirst(secM) + "-"
+                + pns.utils.strings.RStrings.zeroFirst(miliM);
 
         String dName = dirNameCreator("");
 
@@ -358,12 +358,12 @@ public class FileActor {
         int mH = cldr.get(Calendar.HOUR_OF_DAY);
 
         if (directoryName.length() == 0) {
-            directoryName = pns.utils.strings.RSrings.rndString(pns.utils.numbers.RBytes.rndInt(4, 7), pns.utils.strings.RSrings.LATIN_SMALL);
+            directoryName = pns.utils.strings.RStrings.rndString(pns.utils.numbers.RInts.rndInt(4, 7), pns.utils.strings.RStrings.LATIN_SMALL);
         }
-        String result = pns.utils.dateTimeMechanism.zeroFirst(mY) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mM + 1) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mD) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mH) + "/"
+        String result = pns.utils.strings.RStrings.zeroFirst(mY) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mM + 1) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mD) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mH) + "/"
                 + directoryName;
 
         return result;
@@ -386,12 +386,12 @@ public class FileActor {
         int mH = cldr.get(Calendar.HOUR_OF_DAY);
 
         if (directoryName.length() == 0) {
-            directoryName = pns.utils.strings.RSrings.rndString(pns.utils.numbers.RBytes.rndInt(4, 7), pns.utils.strings.RSrings.LATIN_SMALL);
+            directoryName = pns.utils.strings.RStrings.rndString(pns.utils.numbers.RInts.rndInt(4, 7), pns.utils.strings.RStrings.LATIN_SMALL);
         }
-        String result = pns.utils.dateTimeMechanism.zeroFirst(mY) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mM + 1) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mD) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mH) + "/"
+        String result = pns.utils.strings.RStrings.zeroFirst(mY) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mM + 1) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mD) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mH) + "/"
                 + directoryName;
 
         return result;
@@ -409,10 +409,10 @@ public class FileActor {
         int mD = cldr.get(Calendar.DATE);
         int mH = cldr.get(Calendar.HOUR_OF_DAY);
 
-        String result = pns.utils.dateTimeMechanism.zeroFirst(mY) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mM + 1) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mD) + "/"
-                + pns.utils.dateTimeMechanism.zeroFirst(mH);
+        String result = pns.utils.strings.RStrings.zeroFirst(mY) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mM + 1) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mD) + "/"
+                + pns.utils.strings.RStrings.zeroFirst(mH);
 
         return result;
     }

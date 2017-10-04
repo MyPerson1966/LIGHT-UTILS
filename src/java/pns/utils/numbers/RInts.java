@@ -7,87 +7,87 @@ package pns.utils.numbers;
 
 /**
  *
- * @author jpdw
+ * @author User
  */
-public class RBytes {
+public class RInts {
 
-// *******************  BYTES *******************
+// *******************  INTEGERS *******************
     /**
-     * Gets random byte value
+     * Gets random int value
      *
      * @return
      */
-    public static byte rndByte() {
+    public static int rndInt() {
         double r = Math.random();
-        byte b = (byte) (-r * 128 + (1 - r) * 127);
+        int b = (int) (-r * 128 + (1 - r) * 127);
         return b;
     }
 
     /**
-     * Gets random byte value between min and max
+     * Gets random int value between min and max
      *
-     * @param min of byte type
-     * @param max of byte type
+     * @param min of int type
+     * @param max of int type
      * @return
      */
-    public static byte rndByte(byte min, byte max) {
+    public static int rndInt(int min, int max) {
         double r = Math.random();
-        byte b = (byte) (r * min + (1 - r) * max);
+        int b = (int) (r * min + (1 - r) * max);
         return b;
     }
 
     /**
-     * Get random byte array with random length. The length is limited by 100
+     * Get random int array with random length. The length is limited by 100
      *
      * @return
      */
-    public static byte[] rndByteArray() {
+    public static int[] rndIntArray() {
         int length = (int) (Integer.MAX_VALUE * Math.random());
         if (length > 100) {
             length = 100;
         }
-        byte[] bs = new byte[length];
+        int[] bs = new int[length];
         for (int i = 0; i < bs.length; i++) {
-            bs[i] = rndByte();
+            bs[i] = rndInt();
         }
         return bs;
     }
 
     /**
-     * Get random byte array with fixed length.
+     * Get random int array with fixed length.
      *
      * @param length
      * @return
      */
-    public static byte[] rndByteArray(int length) {
-        byte[] bs = new byte[length];
+    public static int[] rndIntArray(int length) {
+        int[] bs = new int[length];
         for (int i = 0; i < bs.length; i++) {
-            bs[i] = rndByte();
+            bs[i] = rndInt();
         }
         return bs;
     }
 
     /**
-     * Get random byte array with random length.
+     * Get random int array with random length.
      *
      * @param min
      * @param max
      * @return
      */
-    public static byte[] rndByteArray(byte min, byte max) {
+    public static int[] rndIntArray(int min, int max) {
         int length = (int) (Integer.MAX_VALUE * Math.random());
         if (length > 100) {
             length = 100;
         }
-        byte[] bs = new byte[length];
+        int[] bs = new int[length];
         for (int i = 0; i < bs.length; i++) {
-            bs[i] = rndByte(min, max);
+            bs[i] = rndInt(min, max);
         }
         return bs;
     }
 
     /**
-     * Get random byte array with fixed length. the values are between min and
+     * Get random int array with fixed length. the values are between min and
      * max
      *
      * @param length
@@ -95,10 +95,10 @@ public class RBytes {
      * @param max
      * @return
      */
-    public static byte[] rndByteArray(int length, byte min, byte max) {
-        byte[] bs = new byte[length];
+    public static int[] rndIntArray(int length, int min, int max) {
+        int[] bs = new int[length];
         for (int i = 0; i < bs.length; i++) {
-            bs[i] = rndByte(min, max);
+            bs[i] = rndInt(min, max);
         }
         return bs;
     }
