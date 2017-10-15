@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2ee-ejbjarproject/3">
             <name>LIGHT-UTILS</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
+            <included-library dirs="200">file.reference.jdom-2.0.6.jar</included-library>
             <source-roots>
                 <root id="src.dir" name="Пакеты исходных кодов"/>
             </source-roots>
