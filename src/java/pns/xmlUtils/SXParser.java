@@ -20,15 +20,13 @@ import org.xml.sax.helpers.DefaultHandler;
  *
  * @author PSEVO tochka
  */
-@Stateless
-@LocalBean
 public class SXParser extends DefaultHandler {
 
-    private String docUrl;
-    private String thisElement = "";
+    protected String docUrl;
+    protected String thisElement = "";
     private Hashtable tags;
 
-    DefaultHandler dh = new DefaultHandler();
+    private DefaultHandler dh = new DefaultHandler();
 
     @PostConstruct
     public void init() {
@@ -37,102 +35,91 @@ public class SXParser extends DefaultHandler {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     public String getDocUrl() {
-	return docUrl;
+        return docUrl;
     }
 
     public void setDocUrl(String docUrl) {
-	this.docUrl = docUrl;
+        this.docUrl = docUrl;
     }
 
-    public void build() throws ParserConfigurationException, SAXException, IOException {
-	SAXParserFactory factory = SAXParserFactory.newInstance();
-	SAXParser parser = factory.newSAXParser();
-//SAXPars saxp = new SAXPars();
-
-	parser.parse(new File(docUrl), this);
-    }
-
-    @Override
-    public void startDocument() throws SAXException {
-	System.out.println("Start parse XML...");
-	tags = new Hashtable();
-    }
-
-    @Override
-    public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
-	thisElement = qName + "   " + atts.getLocalName(0) + "=" + atts.getValue(0);
-	String key = localName;
-	Object value = tags.get(key);
-
-	if (value == null) {
-	    tags.put(key, new Integer(1));
-	} else {
-	    int count = ((Integer) value).intValue();
-	    count++;
-	    tags.put(key, new Integer(count));
-	}
-
-    }
-
-    @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-
-	System.out.println("thisElement   " + thisElement + ";      " + new String(ch, start, length));
-
-	/*
-  if (thisElement.equals("id")) {
-     doc.setId(new Integer(new String(ch, start, length)));
-  }
-  if (thisElement.equals("fam")) {
-     doc.setFam(new String(ch, start, length));
-  }
-  if (thisElement.equals("name")) {
-     doc.setName(new String(ch, start, length));
-  }
-  if (thisElement.equals("otc")) {
-     doc.setOtc(new String(ch, start, length));
-  }
-  if (thisElement.equals("dateb")) {
-     doc.setDateb(new String(ch, start, length));
-  }
-  if (thisElement.equals("datep")) {
-     doc.setDatep(new String(ch, start, length));
-  }
-  if (thisElement.equals("datev")) {
-     doc.setDatev(new String(ch, start, length));
-  }
-  if (thisElement.equals("datebegin")) {
-     doc.setDatebegin(new String(ch, start, length));
-  }
-  if (thisElement.equals("dateend")) {
-     doc.setDateend(new String(ch, start, length));
-  }
-  if (thisElement.equals("vdolid")) {
-     doc.setVdolid(new Integer(new String(ch, start, length)));
-  }
-  if (thisElement.equals("specid")) {
-     doc.setSpecid(new Integer(new String(ch, start, length)));
-  }
-  if (thisElement.equals("klavid")) {
-     doc.setKlavid(new Integer(new String(ch, start, length)));
-  }
-  if (thisElement.equals("stav")) {
-     doc.setStav(new Float(new String(ch, start, length)));
-  }
-  if (thisElement.equals("progid")) {
-     doc.setProgid(new Integer(new String(ch, start, length)));
-  }
-	 */
-    }
-
-    @Override
-    public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
-	thisElement = "";
-    }
-
-    @Override
-    public void endDocument() {
-	System.out.println("Stop parse XML...");
-    }
-
+//    @Override
+//    public void startDocument() throws SAXException {
+//        System.out.println("Start parse XML...");
+//        tags = new Hashtable();
+//    }
+//
+//    @Override
+//    public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+//        thisElement = qName + "   " + atts.getLocalName(0) + "=" + atts.getValue(0);
+//        String key = localName;
+//        Object value = tags.get(key);
+//
+//        if (value == null) {
+//            tags.put(key, new Integer(1));
+//        } else {
+//            int count = ((Integer) value).intValue();
+//            count++;
+//            tags.put(key, new Integer(count));
+//        }
+//    }
+//    @Override
+//    public void characters(char[] ch, int start, int length) throws SAXException {
+//
+//        /*
+//        System.out.println("thisElement   " + thisElement + ";      " + new String(ch, start, length));
+//
+//  if (thisElement.equals("id")) {
+//     doc.setId(new Integer(new String(ch, start, length)));
+//  }
+//  if (thisElement.equals("fam")) {
+//     doc.setFam(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("name")) {
+//     doc.setName(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("otc")) {
+//     doc.setOtc(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("dateb")) {
+//     doc.setDateb(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("datep")) {
+//     doc.setDatep(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("datev")) {
+//     doc.setDatev(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("datebegin")) {
+//     doc.setDatebegin(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("dateend")) {
+//     doc.setDateend(new String(ch, start, length));
+//  }
+//  if (thisElement.equals("vdolid")) {
+//     doc.setVdolid(new Integer(new String(ch, start, length)));
+//  }
+//  if (thisElement.equals("specid")) {
+//     doc.setSpecid(new Integer(new String(ch, start, length)));
+//  }
+//  if (thisElement.equals("klavid")) {
+//     doc.setKlavid(new Integer(new String(ch, start, length)));
+//  }
+//  if (thisElement.equals("stav")) {
+//     doc.setStav(new Float(new String(ch, start, length)));
+//  }
+//  if (thisElement.equals("progid")) {
+//     doc.setProgid(new Integer(new String(ch, start, length)));
+//  }
+//         */
+//    }
+//
+//    @Override
+//    public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+//        thisElement = "";
+//    }
+//
+//    @Override
+//    public void endDocument() {
+//        System.out.println("Stop parse XML...");
+//    }
 }
