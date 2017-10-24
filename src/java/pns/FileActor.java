@@ -12,7 +12,7 @@ import java.util.TimeZone;
 
 /**
  *
- * @author jpdw
+ * @author Psevo
  */
 public class FileActor {
 
