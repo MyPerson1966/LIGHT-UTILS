@@ -64,5 +64,4 @@ public class dateTimeMechanism {
         }
         return format.format(d);
     }
-
 }
