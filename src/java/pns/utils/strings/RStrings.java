@@ -36,14 +36,14 @@ public class RStrings {
      * @return
      */
     public static String rndLetterString() {
-	int spLen = RInts.rndInt(10, 20);
+	int spLen = RInts.rndInt(4, 6);
 	char[] c = RChars.rndCharArray('a', 'z');
 	char[] C = RChars.rndCharArray('A', 'Z');
 	char[] d = RChars.rndCharArray('0', '9');
 	String special = "";
-//	for (int s = 0; s < spLen; s++) {
-//	    special += "!@#$%^&*()-_~`=+:;.,";
-//	}
+	for (int s = 0; s < spLen; s++) {
+	    special += "!@#$%^&()-=+:;,";
+	}
 	String s1 = new String(c) + new String(d) + new String(C) + special;
 	return shaffleString(s1);
     }
