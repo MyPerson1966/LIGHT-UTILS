@@ -36,16 +36,50 @@ public class RStrings {
      * @return
      */
     public static String rndLetterString() {
-	int spLen = RInts.rndInt(4, 6);
+	int spLen = RInts.rndInt(5, 7);
 	char[] c = RChars.rndCharArray('a', 'z');
 	char[] C = RChars.rndCharArray('A', 'Z');
 	char[] d = RChars.rndCharArray('0', '9');
 	String special = "";
-	for (int s = 0; s < spLen; s++) {
-	    special += "!@#$%^&()-=+:;,";
+
+	String s1 = new String(c) + new String(d) + new String(C);
+	for (int k = 0; k < spLen; k++) {
+	    s1 += new String(c) + new String(d) + new String(C);
 	}
-	String s1 = new String(c) + new String(d) + new String(C) + special;
+
 	return shaffleString(s1);
+    }
+
+    public static String lastMoment() {
+	String res = "" + System.currentTimeMillis();
+	System.out.println("       lastMoment  res.length()   " + res.length());
+	res = res.substring(res.length() - 5);
+	System.out.println("          lastMoment    " + res);
+	return res;
+    }
+
+    public static String rndLetterStringRNDLen(int minLen, int maxLen, int iterLen, boolean isRNDResLength, boolean hasSpec) {
+	String res = "";
+	int k = pns.utils.numbers.RInts.rndInt(minLen, maxLen);
+	for (int i = 0; i < iterLen; i++) {
+	    int r = pns.utils.numbers.RInts.rndInt(minLen * k, maxLen * k);
+	    res += RStrings.rndString('a', 'z');
+	    res += RStrings.rndString('A', 'Z');
+	    res += RStrings.rndString('0', '9');
+	    if (hasSpec) {
+		res += "!@#$%^&*()_+=-:;";
+	    }
+	}
+	if (hasSpec) {
+	    res = shaffleString(res);
+	}
+	if (isRNDResLength) {
+	    res = res.substring(0, k);
+	} else {
+
+	    res = res.substring(0, (maxLen + minLen) / 2);
+	}
+	return res;
     }
 
     /**
