@@ -52,9 +52,7 @@ public class RStrings {
 
     public static String lastMoment() {
 	String res = "" + System.currentTimeMillis();
-	System.out.println("       lastMoment  res.length()   " + res.length());
-	res = res.substring(res.length() - 5);
-	System.out.println("          lastMoment    " + res);
+	res = res.substring(res.length() - 6);
 	return res;
     }
 
@@ -67,16 +65,18 @@ public class RStrings {
 	    res += RStrings.rndString('A', 'Z');
 	    res += RStrings.rndString('0', '9');
 	    if (hasSpec) {
-		res += "!@#$%^&*()_+=-:;";
+		String sp = "";
+		while (sp.length() < k / 2) {
+		    sp += "!@#$%^&*()_+=-:;";
+		}
+		res += shaffleString(sp);
 	    }
 	}
-	if (hasSpec) {
-	    res = shaffleString(res);
-	}
+	res = shaffleString(res) + shaffleString(res) + shaffleString(res);
+	res = shaffleString(res);
 	if (isRNDResLength) {
 	    res = res.substring(0, k);
 	} else {
-
 	    res = res.substring(0, (maxLen + minLen) / 2);
 	}
 	return res;
