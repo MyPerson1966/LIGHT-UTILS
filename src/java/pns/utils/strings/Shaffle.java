@@ -24,6 +24,7 @@ class Shaffle {
 	    int randPicker = (int) (Math.random() * characters.size());
 	    output.append(characters.remove(randPicker));
 	}
+
 	return output.toString();
     }
 }
