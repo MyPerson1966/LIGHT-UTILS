@@ -19,7 +19,18 @@ public class RInts {
      */
     public static int rndInt() {
         double r = Math.random();
-        int b = (int) (-r * 128 + (1 - r) * 127);
+        int b = (int) (-r * Integer.MAX_VALUE + (1 - r) * Integer.MAX_VALUE);
+        return b;
+    }
+
+    /**
+     * Gets random long value
+     *
+     * @return
+     */
+    public static long rndLong() {
+        double r = Math.random();
+        long b = (long) (-r * Long.MAX_VALUE + (1 - r) * Long.MAX_VALUE);
         return b;
     }
 
@@ -33,6 +44,19 @@ public class RInts {
     public static int rndInt(int min, int max) {
         double r = Math.random();
         int b = (int) (r * min + (1 - r) * max);
+        return b;
+    }
+
+    /**
+     * Gets random int value between min and max
+     *
+     * @param min of int type
+     * @param max of int type
+     * @return
+     */
+    public static long rndLong(long min, long max) {
+        double r = Math.random();
+        long b = (long) (r * min + (1 - r) * max);
         return b;
     }
 
