@@ -36,7 +36,7 @@ public class RStrings {
      * @return
      */
     public static String rndLetterString() {
-	int spLen = RInts.rndInt(5, 10);
+	int spLen = RInts.rndInt(5, 15);
 	char[] c = RChars.rndCharArray('a', 'z');
 	char[] C = RChars.rndCharArray('A', 'Z');
 	char[] d = RChars.rndCharArray('0', '9');
