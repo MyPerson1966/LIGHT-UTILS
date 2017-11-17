@@ -27,6 +27,7 @@ public class DirectoryDeepGo {
 
     public void setRootDir(String rootDir) {
         this.rootDir = rootDir;
+        System.out.println("  ~~~~~~~~~~~~~~ public void setRootDir(String rootDir)===>> " + rootDir);
     }
 
     public String getDirToInvestigate() {
@@ -191,6 +192,7 @@ public class DirectoryDeepGo {
      * files and directories in it
      */
     public void goDeep() {
+
         if (rootDir == null) {
             return;
         }
@@ -220,7 +222,7 @@ public class DirectoryDeepGo {
 
             long delta = Math.abs(System.currentTimeMillis() / 1000 - currentFile.lastModified() / 1000);
             Date fDate = new Date(currentFile.lastModified());
-            System.out.println(d + "   " + fDate + ";   " + (d.getTime() - fDate.getTime()) + " ; " + delta);
+            // System.out.println(d + "   " + fDate + ";   " + (d.getTime() - fDate.getTime()) + " ; " + delta);
             if (currentFile.isDirectory()) {
                 subDirList.add(currentFile);
                 Collections.addAll(fileTree, currentFile.listFiles());
@@ -231,7 +233,7 @@ public class DirectoryDeepGo {
             }
 
         }
-
+        //System.out.println("  fileList.size() " + fileList.size());
     }
 
     /**
