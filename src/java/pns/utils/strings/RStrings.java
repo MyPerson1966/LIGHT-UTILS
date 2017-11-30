@@ -366,7 +366,9 @@ public class RStrings {
     }
 
     /**
-     * Removes all WHITE spaces in the string
+     * Removes all WHITE spaces in the string including all \r \n \t
+     * <br />
+     * The string s brakes into tokens, then the received parts are concatinates
      *
      * @param s
      * @return
@@ -374,11 +376,13 @@ public class RStrings {
     public static String removeSpaces(String s) {
         StringTokenizer stt = new StringTokenizer(s);
         String res = "";
+        StringBuffer sbf = new StringBuffer();
 
         while (stt.hasMoreTokens()) {
             String tok = stt.nextToken().trim();
-            res += tok;
+            sbf.append(tok);
         }
+        res = sbf.toString();
         return res;
     }
 

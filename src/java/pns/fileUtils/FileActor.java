@@ -674,10 +674,11 @@ public class FileActor {
             return false;
         }
         fileContent = stringBuffer.toString();
-//        System.out.println("   stringBuffer == null   stringBuffer == null " + (stringBuffer == null) + "  stringBuffer.toString().length() " + stringBuffer.toString().length());
+
         if (stringBuffer == null) {
             fileContent = "";
         }
+        stringBuffer.delete(0, stringBuffer.length());
         return f.exists();
     }
 
