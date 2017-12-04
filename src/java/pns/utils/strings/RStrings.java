@@ -5,6 +5,9 @@
  */
 package pns.utils.strings;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.StringTokenizer;
 import pns.utils.numbers.RChars;
 import pns.utils.numbers.RInts;
@@ -52,6 +55,20 @@ public class RStrings {
         }
 
         return shaffleString(s1);
+    }
+
+    /**
+     * Encripting given string s by cript algorithm cript
+     *
+     * @param s
+     * @param cript can be MD5, SHA, SHA256
+     * @return
+     */
+    public static String strToHash(String s, String cript) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance(cript);
+        byte[] hash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
+
+        return new String(hash);
     }
 
     public static String lastMoment() {

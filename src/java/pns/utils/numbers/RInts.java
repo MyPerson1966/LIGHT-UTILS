@@ -5,6 +5,8 @@
  */
 package pns.utils.numbers;
 
+import java.nio.ByteBuffer;
+
 /**
  *
  * @author User
