@@ -14,7 +14,7 @@ import java.util.TimeZone;
  *
  * @author Psevo
  */
-public class FileActor {
+public class FileActora {
 
     /**
      * Full Filename in OS
@@ -40,11 +40,11 @@ public class FileActor {
 
     private StringBuffer stringBuffer = new StringBuffer();
 
-    public FileActor(String fileDir, String fileName) {
+    public FileActora(String fileDir, String fileName) {
         fullFilePath(fileDir, fileName);
     }
 
-    public FileActor() {
+    public FileActora() {
     }
 
     /**
@@ -52,7 +52,7 @@ public class FileActor {
      *
      * @param fullFileName
      */
-    public FileActor(String fullFileName) {
+    public FileActora(String fullFileName) {
         this.fullFileName = fullFileName;
     }
 
@@ -64,7 +64,7 @@ public class FileActor {
      *
      * @param isAppSubDirPath
      */
-    public FileActor(boolean isAppSubDirPath) {
+    public FileActora(boolean isAppSubDirPath) {
         this.isAppSubDirPath = isAppSubDirPath;
     }
 
@@ -188,7 +188,7 @@ public class FileActor {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final FileActor other = (FileActor) obj;
+        final FileActora other = (FileActora) obj;
         if (!Objects.equals(this.fullFileName, other.fullFileName)) {
             return false;
         }
