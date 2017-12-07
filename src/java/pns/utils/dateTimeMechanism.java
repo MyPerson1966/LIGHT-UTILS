@@ -64,4 +64,16 @@ public class dateTimeMechanism {
         }
         return format.format(d);
     }
+
+    public static String convert2StandardFormat(long moment, boolean isUTC, boolean showMili) {
+        //"yyyy-MM-dd HH:mm:ss.SSS"
+        String formatStr = "";
+        if (showMili) {
+            formatStr = "yyyy-MM-dd HH:mm:ss.SSS";
+        } else {
+            formatStr = "yyyy-MM-dd HH:mm:ss";
+        }
+        return convertLongToDateStr(moment, formatStr, isUTC);
+    }
+
 }
