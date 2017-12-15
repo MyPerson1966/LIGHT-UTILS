@@ -69,9 +69,9 @@ public class dateTimeMechanism {
         //"yyyy-MM-dd HH:mm:ss.SSS"
         String formatStr = "";
         if (showMili) {
-            formatStr = "yyyy-MM-dd HH:mm:ss.SSS";
+            formatStr = "dd.MM.yyyy   HH:mm:ss.SSS";
         } else {
-            formatStr = "yyyy-MM-dd HH:mm:ss";
+            formatStr = "dd.MM.yyyy   HH:mm:ss";
         }
         return convertLongToDateStr(moment, formatStr, isUTC);
     }
